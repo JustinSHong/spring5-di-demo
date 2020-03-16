@@ -13,7 +13,9 @@ import org.springframework.context.annotation.Profile;
  */
 @Configuration
 public class GreetingServiceConfig {
-    // Spring injects repository at run time
+    // Spring injects repository at run time automatically
+    // return instance of factory with the repository given
+        // declare other Spring Beans
     @Bean
     GreetingServiceFactory greetingServiceFactory(GreetingRepository repository){
         return new GreetingServiceFactory(repository);

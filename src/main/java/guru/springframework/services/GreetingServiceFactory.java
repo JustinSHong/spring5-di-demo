@@ -5,14 +5,15 @@ package guru.springframework.services;
  */
 public class GreetingServiceFactory {
 
-    private GreetingRepository greetingRepository;
+    private GreetingRepository greetingRepository; // responsible for accessing a greeting
 
+    // constructor based injection
     public GreetingServiceFactory(GreetingRepository greetingRepository) {
         this.greetingRepository = greetingRepository;
     }
 
+    // create other beans depending on the lang parameter
     public GreetingService createGreetingService(String lang) {
-
         switch (lang){
             case "en":
                 return new PrimaryGreetingService(greetingRepository);
